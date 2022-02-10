@@ -1,0 +1,13 @@
+.header{
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    grid-template-rows: 40px;
+}
+.navbar-logo{
+    font-size: 2rem;
+    font-weight: 900;
+}
+.navbar ul{
+    display: flex;
+}
+
