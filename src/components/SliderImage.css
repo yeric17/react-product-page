@@ -1,0 +1,36 @@
+.slider-image{
+    height: 100%;
+    position: relative;
+}
+.slider-image_wrapper {
+    height: 100%;
+    position: relative;
+    display: flex;
+}
+.slider-image_wrapper > *{
+    flex-shrink: 0;
+}
+.slider-image_actions button{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.slider-image_actions button img{
+    width: .6rem;
+    
+}
+
+.slider-image_button-next{
+    right: 1rem;
+}
+.slider-image_button-prev{
+    left: 1rem;
+}

@@ -1,5 +1,6 @@
 
 import iconCart from '../assets/images/icon-cart.svg'
+import logo from '../assets/images/logo.svg'
 import { useEffect, useState } from 'react'
 import userAvatar from '../assets/images/image-avatar.png'
 import React from 'react'
@@ -17,11 +18,12 @@ function Navbar() {
   useEffect(() => {
     const handleResize = () => {
       const windowWidth = window.innerWidth
-      if (windowWidth <= 425) {
+      if (windowWidth <= 500) {
         setBreakpoint('mobile')
       } else {
         setBreakpoint('desktop')
       }
+      console.log(windowWidth)
     }
     window.addEventListener('resize', handleResize)
     handleResize()
@@ -31,9 +33,9 @@ function Navbar() {
       <nav className='navbar'>
         <div className='navbar-container'>
           {breakpoint === 'mobile' &&
-            <button><img src={iconMenu} alt="icon-menu" /></button>
+            <button className='navbar-container_btn'><img src={iconMenu} alt="icon-menu" /></button>
           }
-          <a href='/' className='navbar-logo'>sneakers</a>
+          <a href='/' className='navbar-logo'><img src={logo} alt="logo" /></a>
           {breakpoint === 'desktop' &&
           <ul className='navbar-nav'>
             <li><a href="/collections">Collections</a></li>

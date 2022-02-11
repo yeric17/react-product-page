@@ -1,10 +1,111 @@
 .product-images {
-    display: flex;
+    height: 320px;
+    padding-bottom: 2rem;
 }
-.product-images img{
+.product-images_item{
+    display: block;
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 .product-info {
     padding:0 2rem;
+}
+
+.company-name{
+    font-size: .9rem;
+    font-weight: bold;
+    color: hsl(var(--clr-orange));
+    display: flex;
+    background-color: hsl(var(--clr-pale-orange), 0.6);
+    padding: 1rem 0;
+    width: fit-content;
+}
+
+.product-name{
+    padding-top: 1rem;
+    font-size: 1.8rem;
+}
+
+.product-description{
+    color: hsl(var(--clr-grayish-blue-dark));
+    display: block;
+    margin:0;
+    padding-top: 1rem;
+}
+
+.product-price{
+    display: grid;
+    grid-template-columns: auto auto auto 1fr;
+    align-items: center;
+    padding-top: 1rem;
+    
+}
+.product-price .currency, .product-price .price{
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: hsl(var(--clr-black));
+}
+
+.product-price .price{
+    padding-left: 1px;
+}
+
+.product-price .discount{
+    margin-left: 1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: hsl(var(--clr-orange));
+    background-color: hsl(var(--clr-pale-orange));
+    padding: .25rem;
+    border-radius: 4px;
+}
+
+.product-price .old-price{
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: hsl(var(--clr-grayish-blue));
+    text-decoration: line-through;
+    justify-self: flex-end;
+}
+
+.product-counter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+}
+.product-counter button{
+    padding: 1rem;
+}
+
+.product-counter_input{
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: none;
+    text-align: center;
+    outline: none;
+}
+.product-btn-add{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    text-align: center;
+    width: 100%;
+    background-color: hsl(var(--clr-orange), 0.8);
+    font-size: 1.15rem;
+    padding: 1rem;
+    border-radius: 10px;
+    gap: 1rem;
+}
+.product-btn-add:hover{
+    background-color: hsl(var(--clr-orange), 0.9);
+}
+.btn-text{
+    color: hsl(var(--clr-white));
+    font-weight: 700;
+}
+.icon-cart{
+    filter:brightness(100);
 }

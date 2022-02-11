@@ -7,9 +7,25 @@
     padding-left: 2rem;
     padding-right: 2rem;
 }
+.navbar-container{
+    display: flex;
+    align-items: baseline;
+}
+.navbar-container a{
+    display: flex;
+    align-content: center;
+}
+.navbar-container{
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+.navbar-container_btn img{
+    height: 100%;
+}
 .navbar-logo{
     font-size: 2rem;
     font-weight: 700;
+    letter-spacing: 0;
 }
 .navbar ul{
     display: flex;
@@ -23,4 +39,13 @@
 
 .navbar-logo{
     padding-left: 1rem;
+}
+
+.shopping-cart{
+    display: flex;
+    align-content: center;
+}
+.shopping-cart a {
+    display: flex;
+    align-content: center;
 }
