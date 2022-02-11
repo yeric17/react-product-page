@@ -1,0 +1,10 @@
+.product-images {
+    display: flex;
+}
+.product-images img{
+    width: 100%;
+    height: 100%;
+}
+.product-info {
+    padding:0 2rem;
+}
