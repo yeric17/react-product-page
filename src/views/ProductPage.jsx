@@ -1,11 +1,13 @@
 
-import { useState,useEffect } from 'react'
+import { useState,useEffect, useContext } from 'react'
 import { getProducts } from '../components/products'
 import SliderImage from '../components/SliderImage'
 import './ProductPage.css'
 import iconPlus from '../assets/images/icon-plus.svg'
 import iconMinus from '../assets/images/icon-minus.svg'
 import iconCart from '../assets/images/icon-cart.svg'
+
+import SelectedProducts from '../context/SelectedProducts'
 
 const product = getProducts()[0]
 
@@ -28,13 +30,17 @@ const useCounter = (initialValue, minValue, maxValue) => {
   return [count, handleIncrement, handleDecrement, handleReset]
 }
 
+
 function ProductPage() {
   const {company, name, description, price, images } = product
   const { currency, value, discount } = price
   const { display, thumbnail } = images
   const newPrice = value - (value * discount)
   const [breakpoint, setBreakpoint] = useState('')
-  const [count, handleIncrement, handleDecrement] = useCounter(0, 0, 10)
+  const [count, handleIncrement, handleDecrement] = useCounter(1, 1, 10)
+
+  const {selectedProducts,setSelectedProducts} = useContext(SelectedProducts)
+
   useEffect(() => {
     const handleResize = () => {
       const windowWidth = window.innerWidth
@@ -47,6 +53,7 @@ function ProductPage() {
     window.addEventListener('resize', handleResize)
     handleResize()
   })
+
   return (
     
     <>
@@ -70,12 +77,23 @@ function ProductPage() {
         <div className='product-actions'>
           <div className="product-counter">
             <button onClick={handleDecrement}><img src={iconMinus} alt="icon-minus" /></button>
-            <input className='product-counter_input' type='text' value={count}/>
+            <input onChange={()=>{console.log('new value')}} className='product-counter_input' type='text' value={count}/>
             <button onClick={handleIncrement}><img src={iconPlus} alt="icon-plus" /></button>
           </div>
-          <button className='product-btn-add'>
-            <img class='icon-cart' src={iconCart} alt="" />
-            <span class='btn-text'>Add to cart</span>
+          <button  onClick={()=>{
+            setSelectedProducts([...selectedProducts,{
+              name: name,
+              currency: currency,
+              price: newPrice,
+              count: count,
+              image: product.images.thumbnail[0],
+              //random id text
+              id: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+            }])
+            
+          }} className='product-btn-add'>
+            <img className='icon-cart' src={iconCart} alt="" />
+            <span className='btn-text'>Add to cart</span>
           </button>
         </div>
       </div>

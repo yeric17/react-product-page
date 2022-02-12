@@ -1,3 +1,7 @@
+*{
+  box-sizing: border-box;
+}
+
 li{
     list-style: none;
   }
@@ -12,9 +16,12 @@ li{
     border: none;
     padding: 0;
     cursor: pointer;
+    color:inherit;
+    font-size: inherit;
+    font-weight: inherit;
   }
   
-  ul,body,h1,h2,h3,h4,h5,h6{
+  ul,p,body,h1,h2,h3,h4,h5,h6{
     margin: 0;
     padding: 0;
   }

@@ -1,0 +1,119 @@
+
+.shopping-cart{
+    display: flex;
+    align-content: center;
+}
+.shopping-cart a {
+    display: flex;
+    align-content: center;
+}
+
+.shopping-cart_btn{
+    position: relative;
+}
+.shopping-cart_count{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    font-size: .6rem;
+    color: #fff;
+    background-color: hsl(var(--clr-orange));
+    border-radius: 1.5rem;
+    padding: .12rem .4rem;
+}
+
+.shopping-cart_content{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, .5rem);
+    width: 100%;
+    z-index: 100;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    
+}
+
+.shopping-cart_card{
+    background-color: hsl(var(--clr-white));
+    border-radius: .5rem;
+    box-shadow: 0 0 .5rem hsla(var(--clr-black), .5);
+    padding-bottom: .5rem;
+}
+
+.shopping-cart_header{
+    padding: 1.5rem;
+    border-bottom: 1px solid hsl(var(--clr-grayish-blue),.6);
+}
+
+.shopping-cart_items{
+    min-height: 180px;
+}
+
+.shopping-cart_items{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    font-weight: 700;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+}
+
+
+
+.shopping-cart_empty{
+    color: hsl(var(--clr-grayish-blue-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shopping-cart_item{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.shopping-cart_item_image{
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 6px;
+}
+
+.shopping-cart_item-info{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+}
+
+
+.shopping-cart_item-info *:not(:last-child){
+    color: hsl(var(--clr-grayish-blue-dark));
+    font-weight: 400;
+}
+.shopping-cart_item_name{
+    grid-column: span 3;
+}
+
+.shopping-cart_btn-checkout{
+    display: block;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-bottom: 2rem;
+}
+.shopping-cart_btn-checkout button{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background-color: hsl(var(--clr-orange));
+    color: hsl(var(--clr-white));
+    font-weight: 700;
+    border-radius: .5rem;
+    cursor: pointer;
+}

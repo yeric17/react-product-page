@@ -1,0 +1,11 @@
+.header{
+    position: relative;
+    z-index: 100;
+}
+
+
+.user-avatar img{
+    display: block;
+    max-height: 100%;
+    height: 1.8rem;
+}

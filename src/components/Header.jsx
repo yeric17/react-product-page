@@ -1,11 +1,15 @@
 
-import iconCart from '../assets/images/icon-cart.svg'
-import logo from '../assets/images/logo.svg'
 import { useEffect, useState } from 'react'
 import userAvatar from '../assets/images/image-avatar.png'
 import React from 'react'
-import iconMenu from '../assets/images/icon-menu.svg'
-import './Navbar.css'
+import NavbarMobile from './NavbarMobile'
+import NavbarDesktop from './NavbarDesktop'
+import ShoppingCart from './ShoppingCart'
+
+
+
+
+import './Header.css'
 
 
 const user = {
@@ -13,7 +17,7 @@ const user = {
   avatar: userAvatar
 }
 
-function Navbar() {
+function Header() {
   const [breakpoint, setBreakpoint] = useState('')
   useEffect(() => {
     const handleResize = () => {
@@ -28,28 +32,20 @@ function Navbar() {
     window.addEventListener('resize', handleResize)
     handleResize()
   })
+
   return (
     <header className="header">
       <nav className='navbar'>
         <div className='navbar-container'>
           {breakpoint === 'mobile' &&
-            <button className='navbar-container_btn'><img src={iconMenu} alt="icon-menu" /></button>
+            <NavbarMobile />
           }
-          <a href='/' className='navbar-logo'><img src={logo} alt="logo" /></a>
           {breakpoint === 'desktop' &&
-          <ul className='navbar-nav'>
-            <li><a href="/collections">Collections</a></li>
-            <li><a href="/men">Men</a></li>
-            <li><a href="/woment">Women</a></li>
-            <li><a href='/about'>About</a></li>
-            <li><a href="/contact">Contact</a></li>
-          </ul>
+            <NavbarDesktop />
           }
         </div>
       </nav>
-      <span className="shopping-cart">
-        <a href="/cart"><img src={iconCart} alt="icon-cart" /></a>
-      </span>
+      <ShoppingCart />
 
       <button className='user-avatar'>
         <img src={user.avatar} alt="user-avatar" />
@@ -60,4 +56,4 @@ function Navbar() {
 
 }
 
-export default Navbar
+export default Header
