@@ -1,12 +1,4 @@
-.header{
-    display: grid;
-    grid-template-columns: 1fr auto auto;
-    grid-template-rows: 40px;
-    align-items: center;
-    gap: 1rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-}
+
 .navbar-container{
     display: flex;
     align-items: baseline;
@@ -62,3 +54,5 @@
 .navbar_close-btn{
     margin-bottom: 4rem;
 }
+
+

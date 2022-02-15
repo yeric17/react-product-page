@@ -4,7 +4,15 @@
     margin: 0 auto;
 }
 
-
+.header{
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    grid-template-rows: 40px;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
 .user-avatar img{
     display: block;
     max-height: 100%;
@@ -14,5 +22,6 @@
 @media screen and (min-width: 740px){
     .header{
         border-bottom: 1px solid #e5e5e5;
+        grid-template-rows: auto;
     }
 }
