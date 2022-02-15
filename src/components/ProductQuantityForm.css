@@ -1,0 +1,41 @@
+
+.product-counter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+}
+.product-counter button{
+    padding: 1rem;
+}
+
+.product-counter_input{
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: none;
+    text-align: center;
+    outline: none;
+}
+.product-btn-add{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    text-align: center;
+    width: 100%;
+    background-color: hsl(var(--clr-orange), 0.8);
+    font-size: 1.15rem;
+    padding: 1rem;
+    border-radius: 10px;
+    gap: 1rem;
+}
+.product-btn-add:hover{
+    background-color: hsl(var(--clr-orange), 0.9);
+}
+.btn-text{
+    color: hsl(var(--clr-white));
+    font-weight: 700;
+}
+.icon-cart{
+    filter:brightness(100);
+}

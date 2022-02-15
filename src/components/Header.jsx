@@ -1,13 +1,12 @@
 
-import { useEffect, useState } from 'react'
+
 import userAvatar from '../assets/images/image-avatar.png'
 import React from 'react'
 import NavbarMobile from './NavbarMobile'
 import NavbarDesktop from './NavbarDesktop'
 import ShoppingCart from './ShoppingCart'
 
-
-
+import {useBreakpoint} from './media-querys/MeidaQuery'
 
 import './Header.css'
 
@@ -17,34 +16,18 @@ const user = {
   avatar: userAvatar
 }
 
-function Header() {
-  const [breakpoint, setBreakpoint] = useState('')
-  useEffect(() => {
-    const handleResize = () => {
-      const windowWidth = window.innerWidth
-      if (windowWidth <= 500) {
-        setBreakpoint('mobile')
-      } else {
-        setBreakpoint('desktop')
-      }
-      console.log(windowWidth)
-    }
-    window.addEventListener('resize', handleResize)
-    handleResize()
-  })
 
+function Header() {
+  const breakpoint = useBreakpoint()
   return (
     <header className="header">
-      <nav className='navbar'>
-        <div className='navbar-container'>
-          {breakpoint === 'mobile' &&
-            <NavbarMobile />
-          }
-          {breakpoint === 'desktop' &&
-            <NavbarDesktop />
-          }
-        </div>
-      </nav>
+      {breakpoint === 'mobile' &&
+        <NavbarMobile />
+      }
+      {breakpoint === 'desktop' &&
+        <NavbarDesktop />
+      }
+
       <ShoppingCart />
 
       <button className='user-avatar'>

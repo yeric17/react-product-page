@@ -18,8 +18,8 @@ const products = [
             discount: 0.5
         },
         images: {
-            display: [prodDisImage_1, prodDisImage_2, prodDisImage_3, prodDisImage_4],
-            thumbnail: [prodThumImage_1, prodThumImage_2, prodThumImage_3, prodThumImage_4]
+            displayImages: [prodDisImage_1, prodDisImage_2, prodDisImage_3, prodDisImage_4],
+            thumbImages: [prodThumImage_1, prodThumImage_2, prodThumImage_3, prodThumImage_4]
         }
     }
 ]

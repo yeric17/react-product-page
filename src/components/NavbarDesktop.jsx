@@ -3,7 +3,7 @@
 import logo from '../assets/images/logo.svg'
 import userAvatar from '../assets/images/image-avatar.png'
 import React from 'react'
-
+import './NavbarDesktop.css'
 
 const user = {
     name: 'John Doe',
@@ -12,16 +12,15 @@ const user = {
 
 function NavbarMobile() {
     return (
-        <nav className='navbar'>
-            <div className='navbar-container'>
+        <nav className='navbar-desktop'>
+            <div className='navbar-desktop_container'>
                 <a href='/' className='navbar-logo'><img src={logo} alt="logo" /></a>
-
                 <ul className='navbar-nav'>
-                    <li><a href="/collections">Collections</a></li>
-                    <li><a href="/men">Men</a></li>
-                    <li><a href="/woment">Women</a></li>
-                    <li><a href='/about'>About</a></li>
-                    <li><a href="/contact">Contact</a></li>
+                    <li className='navbar-nav_item'><a href="/">Collections</a></li>
+                    <li className='navbar-nav_item'><a href="/">Men</a></li>
+                    <li className='navbar-nav_item'><a href="/">Women</a></li>
+                    <li className='navbar-nav_item'><a href='/'>About</a></li>
+                    <li className='navbar-nav_item'><a href="/">Contact</a></li>
                 </ul>
 
             </div>

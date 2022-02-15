@@ -1,0 +1,9 @@
+.display-image_item{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.display-image{
+    width: 100%;
+}

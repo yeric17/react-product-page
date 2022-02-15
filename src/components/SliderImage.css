@@ -1,6 +1,7 @@
 .slider-image{
     height: 100%;
     position: relative;
+    overflow: hidden;
 }
 .slider-image_wrapper {
     --slider-left: 0;
@@ -35,4 +36,26 @@
 }
 .slider-image_button-prev{
     left: 1rem;
+}
+
+.slider-image_thumbs{
+    padding-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+.slider-image_thumbs img{
+    width: 5rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.slider-image_thumbs img.active, .slider-image_thumbs img:hover{
+    opacity: .3;
+}
+
+
+@media  screen and (min-width: 740px) {
+    .slider-image{
+        border-radius: 10px;
+        cursor: pointer;
+    }
 }
