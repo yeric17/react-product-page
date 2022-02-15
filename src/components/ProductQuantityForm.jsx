@@ -22,7 +22,7 @@ const useCounter = (initialValue, minValue, maxValue) => {
     return [count, handleIncrement, handleDecrement]
 }
 
-export const ProductQuantityForm =  ({ name, currency, price, image }) => {
+export const ProductQuantityForm =  ({ name, price, image }) => {
     const { selectedProducts, setSelectedProducts } = useContext(SelectedProducts)
 
     const [count, handleIncrement, handleDecrement] = useCounter(1, 1, 10);
@@ -38,8 +38,7 @@ export const ProductQuantityForm =  ({ name, currency, price, image }) => {
                 event.preventDefault()
                 setSelectedProducts([...selectedProducts, {
                     name: name,
-                    currency: currency,
-                    price: price.value * (1 - price.discount),
+                    price: price,
                     count: count,
                     image: image,
                     id: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)

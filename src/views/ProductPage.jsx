@@ -11,9 +11,7 @@ import './ProductPage.css'
 function ProductPage() {
 	const product = getProducts()[0]
 	const { name, price, images } = product
-	const { currency, value, discount } = price
 	const { displayImages, thumbImages } = images
-	const newPrice = value - (value * discount)
 	return (
 
 		<div className='product-page'>
@@ -28,8 +26,7 @@ function ProductPage() {
 			<div className='product-actions'>
 				<ProductQuantityForm 
 					name={name}
-					currency={currency}
-					price={newPrice}
+					price={price}
 					image={thumbImages[0]}
 				/>
 			</div>

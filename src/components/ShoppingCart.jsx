@@ -1,13 +1,14 @@
 import iconCart from '../assets/images/icon-cart.svg'
 import { useContext, useState } from 'react'
 import SelectedProducts from '../context/SelectedProducts'
-import iconDelete from '../assets/images/icon-delete.svg'
+import { ShoppingCartItem } from './ShoppingCartItem'
 
 import './ShoppingCart.css'
 
 function ShoppingCart(){
-    const {selectedProducts, setSelectedProducts} = useContext(SelectedProducts)
+    const {selectedProducts} = useContext(SelectedProducts)
     const [active, setActive] = useState(false)
+    console.log(selectedProducts)
     return (
         <div className="shopping-cart">
             <button className='shopping-cart_btn' onClick={()=>{setActive(!active)}}>
@@ -21,21 +22,9 @@ function ShoppingCart(){
                             <h3>Cart</h3>
                         </div>
                         <div className="shopping-cart_items">
-                            {selectedProducts.length > 0 && ( selectedProducts.map((product, index) => {
+                            {selectedProducts.length > 0 && ( selectedProducts.map((product) => {
                                 return (
-                                    <div className="shopping-cart_item" key={product.id}>
-                                        <img className="shopping-cart_item_image" src={product.image} alt="product" />
-                                        <div className="shopping-cart_item-info">
-                                            <h4 className='shopping-cart_item_name'>{product.name}</h4>
-                                            <p className='shopping-cart_item_unit-price'>{product.currency} {product.price.toFixed(2)}</p>
-                                            <span className='shopping-cart_item_count'>x {product.count}</span>
-                                            <span className='shopping-cart_item_total'>{product.currency} {(product.price * product.count).toFixed(2)}</span>
-                                        </div>
-                                        <button onClick={()=>{
-                                            console.log(product)
-                                            setSelectedProducts(selectedProducts.filter(item => item.id !== product.id))
-                                        }} className='shopping-cart_remove-item'><img src={iconDelete} alt="icon-delete" /></button>
-                                    </div>
+                                    <ShoppingCartItem key={product.id} {...product}/>
                                 )
                             }) )}
                             {selectedProducts.length === 0 && ( <div className='shopping-cart_empty'>Your cart is empty</div> )}
