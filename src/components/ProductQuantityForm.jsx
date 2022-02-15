@@ -29,9 +29,11 @@ export const ProductQuantityForm =  ({ name, currency, price, image }) => {
 
     return (
         <form className="product-counter">
-            <button type='button' onClick={handleDecrement}><img src={iconMinus} alt="icon-minus" /></button>
-            <input onChange={() => { console.log('new value') }} className='product-counter_input' type='text' value={count} />
-            <button type='button' onClick={handleIncrement}><img src={iconPlus} alt="icon-plus" /></button>
+            <div className="product-counter_controls">
+                <button type='button' onClick={handleDecrement}><img src={iconMinus} alt="icon-minus" /></button>
+                <input onChange={() => { console.log('new value') }} className='product-counter_input' type='text' value={count} />
+                <button type='button' onClick={handleIncrement}><img src={iconPlus} alt="icon-plus" /></button>
+            </div>
             <button onClick={(event) => {
                 event.preventDefault()
                 setSelectedProducts([...selectedProducts, {
@@ -43,7 +45,7 @@ export const ProductQuantityForm =  ({ name, currency, price, image }) => {
                     id: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
                 }])
 
-            }} className='product-btn-add'>
+            }} className='product-counter_btn-add'>
                 <img className='icon-cart' src={iconCart} alt="" />
                 <span className='btn-text'>Add to cart</span>
             </button>

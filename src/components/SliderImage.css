@@ -53,7 +53,7 @@
 }
 
 
-@media  screen and (min-width: 740px) {
+@media  screen and (min-width: 768px) {
     .slider-image{
         border-radius: 10px;
         cursor: pointer;

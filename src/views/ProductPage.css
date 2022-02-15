@@ -1,21 +1,36 @@
 .product-page{
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-areas: "banner"
+                        "content"
+                        "actions";
     max-width: 1440px;
     margin: 0 auto;
 }
 
+
+
 .product-images {
     height: 320px;
     padding-bottom: 2rem;
+    grid-area: banner;
 }
 
+.product-content{
+    grid-area: content;
+}
+.product-actions{
+    grid-area: actions;
+}
 
-@media screen and (min-width: 740px){
+@media screen and (min-width: 768px){
     .product-page{
         grid-template-columns: 1fr 1fr;
+        grid-template-areas: "banner content"
+                            "banner actions";
         padding-left: 2rem;
         padding-right: 2rem;
         padding-top: 3rem;
     }
+
 }

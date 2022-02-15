@@ -22,7 +22,9 @@ function ProductPage() {
 					{displayImages.map(image => (<DisplayImage key={image} image={image} />))}
 				</SliderImage>
 			</div>
-			<ProductInfo {...product}/>
+			<div className="product-content">
+				<ProductInfo {...product}/>
+			</div>
 			<div className='product-actions'>
 				<ProductQuantityForm 
 					name={name}
