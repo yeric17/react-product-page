@@ -40,6 +40,23 @@ function SliderImage({ children, thumbnails = [] }) {
         })
     }
 
+    const handleThumbClick = (event) => {
+        
+        const parent = event.target.parentElement
+        const index = event.target.dataset.index
+        
+        const elements = Array.from(parent.children)
+        console.log(elements)
+        elements.forEach(element => {
+            if(element.dataset.index === index){
+                element.classList.add('active')
+            }
+            else {
+                element.classList.remove('active')
+            }
+        })
+    }
+
     return (
         <>
             <div className="slider-image">
@@ -60,10 +77,12 @@ function SliderImage({ children, thumbnails = [] }) {
             </div>
             {thumbnails.length > 0 && breakpoint === 'desktop' ?
                 (
-                    <div className="slider-image_thumbs">
+                    <div className="slider-image_thumbs" onClick={handleThumbClick}>
                         {thumbnails.map((thumbnail, index) => {
                             return (
-                                <img src={thumbnail} alt={`thumbnail ${index}`} key={index} className={index === sliderState.index?'active':''} data-action='index' onClick={handleSlider} data-index={index}/>
+                                <div key={thumbnail} className={`slider-image_thumb${index === sliderState.index?' active':''}`} data-index={index} onClick={handleSlider} data-action='index'>
+                                    <img src={thumbnail} alt={`thumbnail ${index}`} />
+                                </div>
                             )
                         })}
 

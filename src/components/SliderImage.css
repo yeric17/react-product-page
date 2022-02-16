@@ -45,11 +45,20 @@
 }
 .slider-image_thumbs img{
     width: 5rem;
+    display: block;
+    pointer-events: none;
+}
+.slider-image_thumb.active img, .slider-image_thumb:hover{
+    opacity: .4;
+}
+.slider-image_thumb{
     border-radius: 8px;
+    border: 2px solid transparent;
+    overflow: hidden;
     cursor: pointer;
 }
-.slider-image_thumbs img.active, .slider-image_thumbs img:hover{
-    opacity: .3;
+.slider-image_thumb.active{
+    border: 2px solid hsl(var(--clr-orange));
 }
 
 
