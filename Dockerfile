@@ -3,6 +3,7 @@ FROM node:14.15.0 as build
 # install dependencies
 WORKDIR /app
 COPY package.json package-lock.json ./
+COPY index.js ./
 RUN npm ci
 
 COPY . .
