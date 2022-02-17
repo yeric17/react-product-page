@@ -13,7 +13,7 @@ RUN npm run build
 FROM node:14.15.0
 
 WORKDIR /app
-COPY --from=dist /app/dist ./dist
+COPY --from=build /app/dist ./dist
 COPY --from=build /app/index.js ./index.js
 
 COPY . .
