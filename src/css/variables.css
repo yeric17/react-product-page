@@ -10,6 +10,6 @@
     --clr-grayish-blue-light: 223, 64%, 98%;
     --clr-white: 0, 0%, 100%;
     --clr-black: 0, 0%, 0%;
-    --clr-black-lightbox: hsl(var(--clr-black) / .75);
+    --clr-black-lightbox: hsl(var(--clr-black), .75);
 }
 

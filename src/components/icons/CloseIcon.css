@@ -1,0 +1,7 @@
+.close-icon-modal{
+    fill: white;
+}
+
+.close-icon-modal:hover{
+    fill: hsl(var(--clr-orange));
+}

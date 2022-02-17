@@ -1,12 +1,14 @@
 import './SliderImage.css'
 import previousIcon from '../assets/images/icon-previous.svg'
 import nextIcon from '../assets/images/icon-next.svg'
-import { useState} from 'react'
-import {useBreakpoint} from './media-querys/MeidaQuery'
+import { useState } from 'react'
+import { useBreakpoint } from './media-querys/MeidaQuery'
+import { SliderImageModal } from './SliderImageModal'
 
 const SLIDER_STATE = {
     left: 0,
-    index: 0
+    index: 0,
+    showModal: false
 }
 
 
@@ -15,25 +17,27 @@ const SLIDER_STATE = {
 
 function SliderImage({ children, thumbnails = [] }) {
     const [sliderState, setSliderState] = useState(SLIDER_STATE)
-    
+
+
     const breakpoint = useBreakpoint()
 
     const handleSlider = (event) => {
-        
+        console.log(event)
+
         const action = event.target.dataset.action;
 
         const sliderWith = document.getElementById('sliderWrapper').offsetWidth
         let index = sliderState.index;
-        
-        if(action === 'next') index = index + 1;
-        if(action === 'prev') index = index - 1;
-        if(action === 'first') index = 0;
-        if(action === 'last') index = children.length - 1;
-        if(action === 'index') index = event.target.dataset.index;
+
+        if (action === 'next') index = index + 1;
+        if (action === 'prev') index = index - 1;
+        if (action === 'first') index = 0;
+        if (action === 'last') index = children.length - 1;
+        if (action === 'index') index = event.target.dataset.index;
 
 
-        if(index < 0) index = children.length - 1
-        if(index > children.length - 1) index = 0
+        if (index < 0) index = children.length - 1
+        if (index > children.length - 1) index = 0
         setSliderState({
             left: -index * sliderWith,
             index: index
@@ -41,14 +45,14 @@ function SliderImage({ children, thumbnails = [] }) {
     }
 
     const handleThumbClick = (event) => {
-        
+
         const parent = event.target.parentElement
         const index = event.target.dataset.index
-        
+
         const elements = Array.from(parent.children)
-        console.log(elements)
+
         elements.forEach(element => {
-            if(element.dataset.index === index){
+            if (element.dataset.index === index) {
                 element.classList.add('active')
             }
             else {
@@ -57,9 +61,21 @@ function SliderImage({ children, thumbnails = [] }) {
         })
     }
 
+    const handleCloseModal = (event) => {
+        setSliderState({
+            ...sliderState,
+            showModal: false
+        })
+    }
+
     return (
         <>
-            <div className="slider-image">
+            <div className="slider-image" onClick={()=>{
+                setSliderState(prevState => ({
+                    ...prevState,
+                    showModal: !prevState.showModal
+                }))
+            }}>
                 <div id="sliderWrapper" className="slider-image_wrapper" style={{ left: sliderState.left }}>
                     {children}
                 </div>
@@ -80,7 +96,7 @@ function SliderImage({ children, thumbnails = [] }) {
                     <div className="slider-image_thumbs" onClick={handleThumbClick}>
                         {thumbnails.map((thumbnail, index) => {
                             return (
-                                <div key={thumbnail} className={`slider-image_thumb${index === sliderState.index?' active':''}`} data-index={index} onClick={handleSlider} data-action='index'>
+                                <div key={thumbnail} className={`slider-image_thumb${index === sliderState.index ? ' active' : ''}`} data-index={index} onClick={handleSlider} data-action='index'>
                                     <img src={thumbnail} alt={`thumbnail ${index}`} />
                                 </div>
                             )
@@ -89,6 +105,9 @@ function SliderImage({ children, thumbnails = [] }) {
                     </div>
                 )
                 : ''}
+            {sliderState.showModal && breakpoint === 'desktop' && (
+                <SliderImageModal closeCallback={handleCloseModal} thumbnails={thumbnails}>{children}</SliderImageModal>
+            )}
         </>
     )
 }
